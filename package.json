@@ -17,12 +17,7 @@
     "autoprefixer": "^10"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.5.2",
-    "@eslint/eslintrc": "^3"
+    "eslint-config-next": "15.5.2"
   }
 }
