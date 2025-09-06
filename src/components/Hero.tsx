@@ -1,94 +1,106 @@
-// src/components/Hero.tsx
-export default function Hero() {
+'use client';
+
+import React from 'react';
+
+const Hero = () => {
+  const handleNavClick = (targetId: string) => {
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
-    <section id="home" className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <div className="lg:pr-8">
-            <div className="mb-6">
-              <span className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
-                Medical Engineering Solutions
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Innovating Healthcare Through 
-                <span className="text-blue-600 block">Engineering Excellence</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                We bridge the gap between medicine and technology, creating cutting-edge solutions 
-                that improve patient outcomes and advance healthcare innovation.
-              </p>
-            </div>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+      </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="#services" 
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                Our Services
-              </a>
-              <a 
-                href="#portfolio" 
-                className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors text-center"
-              >
-                View Portfolio
-              </a>
-            </div>
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-40 left-1/2 transform -translate-x-1/2 w-60 h-60 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-4000"></div>
+      </div>
 
-            {/* Stats */}
-            <div className="mt-12 grid grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
-                <div className="text-gray-600">Projects Completed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">10+</div>
-                <div className="text-gray-600">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-                <div className="text-gray-600">Client Satisfaction</div>
-              </div>
-            </div>
+      {/* Content */}
+      <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-4">
+        <div className="mb-8">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            Building Digital
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              Experiences
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            I create modern, responsive websites and applications that combine beautiful design 
+            with powerful functionality to help your business thrive in the digital world.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <button
+            onClick={() => handleNavClick('portfolio')}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+          >
+            View My Work
+          </button>
+          <button
+            onClick={() => handleNavClick('contact')}
+            className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+          >
+            Get In Touch
+          </button>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">50+</div>
+            <div className="text-gray-300 text-sm md:text-base">Projects Completed</div>
           </div>
-
-          {/* Right Column - Visual Content */}
-          <div className="lg:pl-8">
-            <div className="relative">
-              {/* Placeholder for hero image/graphic */}
-              <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl p-6 text-white">
-                  <div className="flex items-center mb-4">
-                    <div className="w-3 h-3 bg-red-400 rounded-full mr-2"></div>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3">Medical Device Innovation</h3>
-                  <div className="space-y-2">
-                    <div className="bg-white/20 rounded px-3 py-2 text-sm">Design & Prototyping</div>
-                    <div className="bg-white/20 rounded px-3 py-2 text-sm">Regulatory Compliance</div>
-                    <div className="bg-white/20 rounded px-3 py-2 text-sm">Clinical Testing</div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 bg-green-400 rounded-full p-3 animate-pulse">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              
-              <div className="absolute -bottom-4 -left-4 bg-purple-400 rounded-full p-3 animate-bounce">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-            </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-purple-400 mb-2">5+</div>
+            <div className="text-gray-300 text-sm md:text-base">Years Experience</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-indigo-400 mb-2">30+</div>
+            <div className="text-gray-300 text-sm md:text-base">Happy Clients</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">24/7</div>
+            <div className="text-gray-300 text-sm md:text-base">Support</div>
           </div>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+        <button
+          onClick={() => handleNavClick('about')}
+          className="text-white animate-bounce hover:text-blue-400 transition-colors duration-300"
+          aria-label="Scroll to next section"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </button>
+      </div>
+
+      <style jsx>{`
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
     </section>
   );
-}
+};
+
+export default Hero;
