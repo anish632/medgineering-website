@@ -12,7 +12,7 @@ const openSans = Open_Sans({
   variable: "--font-open-sans",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "MEDGineering - Medical Engineering Solutions",
   description: "Professional medical engineering consulting and solutions. Expert healthcare technology consulting services.",
   keywords: "medical engineering, healthcare technology, medical consulting, healthcare solutions",
