@@ -1,3 +1,5 @@
+'use client'
+
 export default function Hero() {
   const scrollToContact = () => {
     const element = document.getElementById('contact')
