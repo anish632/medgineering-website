@@ -2,24 +2,17 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-    setIsMenuOpen(false)
-  }
 
   return (
     <header className="bg-white shadow-lg fixed w-full top-0 z-50">
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image 
               src="/logo400.png" 
               alt="MEDGineering Logo" 
@@ -31,40 +24,40 @@ export default function Header() {
               <h1 className="text-2xl font-bold text-blue-800">MEDGineering</h1>
               <p className="text-sm text-gray-600">Medical Engineering Solutions</p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <button 
-              onClick={() => scrollToSection('home')}
+            <Link 
+              href="/"
               className="text-gray-700 hover:text-blue-600 font-medium transition duration-300"
             >
               Home
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
+            </Link>
+            <Link 
+              href="/about"
               className="text-gray-700 hover:text-blue-600 font-medium transition duration-300"
             >
               About
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
+            </Link>
+            <Link 
+              href="/services"
               className="text-gray-700 hover:text-blue-600 font-medium transition duration-300"
             >
               Services
-            </button>
-            <button 
-              onClick={() => scrollToSection('portfolio')}
+            </Link>
+            <Link 
+              href="/portfolio"
               className="text-gray-700 hover:text-blue-600 font-medium transition duration-300"
             >
               Portfolio
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
+            </Link>
+            <Link 
+              href="/contact"
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
             >
               Contact
-            </button>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -81,36 +74,41 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4">
-            <button 
-              onClick={() => scrollToSection('home')}
+            <Link 
+              href="/"
               className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
+              onClick={() => setIsMenuOpen(false)}
             >
               Home
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
+            </Link>
+            <Link 
+              href="/about"
               className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
+              onClick={() => setIsMenuOpen(false)}
             >
               About
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
+            </Link>
+            <Link 
+              href="/services"
               className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
+              onClick={() => setIsMenuOpen(false)}
             >
               Services
-            </button>
-            <button 
-              onClick={() => scrollToSection('portfolio')}
+            </Link>
+            <Link 
+              href="/portfolio"
               className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
+              onClick={() => setIsMenuOpen(false)}
             >
               Portfolio
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
+            </Link>
+            <Link 
+              href="/contact"
               className="block w-full text-left py-2 bg-blue-600 text-white px-4 rounded-lg hover:bg-blue-700 mt-2"
+              onClick={() => setIsMenuOpen(false)}
             >
               Contact
-            </button>
+            </Link>
           </div>
         )}
       </div>
