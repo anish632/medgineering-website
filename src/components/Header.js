@@ -28,36 +28,30 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link 
-              href="/"
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="text-gray-700 hover:text-blue-600 font-medium transition duration-300"
             >
               Home
-            </Link>
-            <Link 
-              href="/about"
+            </button>
+            <button 
+              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
               className="text-gray-700 hover:text-blue-600 font-medium transition duration-300"
             >
               About
-            </Link>
-            <Link 
-              href="/services"
+            </button>
+            <button 
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               className="text-gray-700 hover:text-blue-600 font-medium transition duration-300"
             >
               Services
-            </Link>
-            <Link 
-              href="/portfolio"
-              className="text-gray-700 hover:text-blue-600 font-medium transition duration-300"
-            >
-              Portfolio
-            </Link>
-            <Link 
-              href="/contact"
+            </button>
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
             >
               Contact
-            </Link>
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -74,41 +68,42 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4">
-            <Link 
-              href="/"
+            <button 
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+                setIsMenuOpen(false)
+              }}
               className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
-              onClick={() => setIsMenuOpen(false)}
             >
               Home
-            </Link>
-            <Link 
-              href="/about"
+            </button>
+            <button 
+              onClick={() => {
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+                setIsMenuOpen(false)
+              }}
               className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
-              onClick={() => setIsMenuOpen(false)}
             >
               About
-            </Link>
-            <Link 
-              href="/services"
+            </button>
+            <button 
+              onClick={() => {
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
+                setIsMenuOpen(false)
+              }}
               className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
-              onClick={() => setIsMenuOpen(false)}
             >
               Services
-            </Link>
-            <Link 
-              href="/portfolio"
-              className="block w-full text-left py-2 text-gray-700 hover:text-blue-600"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Portfolio
-            </Link>
-            <Link 
-              href="/contact"
+            </button>
+            <button 
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                setIsMenuOpen(false)
+              }}
               className="block w-full text-left py-2 bg-blue-600 text-white px-4 rounded-lg hover:bg-blue-700 mt-2"
-              onClick={() => setIsMenuOpen(false)}
             >
               Contact
-            </Link>
+            </button>
           </div>
         )}
       </div>
